@@ -20,7 +20,8 @@ const timerFunction = () => {
   const enteredDay = prompt("Enter Day : ").padStart(2, "0");
   const enteredMonth = prompt("Entered Month : ").padStart(2, "0");
 
-  let targetDate = `${enteredMonth}/${enteredDay}/${yyyy}`;
+  if(enteredDay > 0 && enteredDay<=31 && enteredMonth>0 &&enteredMonth<=12){
+    let targetDate = `${enteredMonth}/${enteredDay}/${yyyy}`;
     console.log(targetDate)
     console.log(targetDate<now)
   if (targetDate < now) {
@@ -47,6 +48,10 @@ const timerFunction = () => {
         clearInterval(timerId)
     }
   }, 1000);
+  }else{
+    counterTimer.style.display = "none"
+    heading.innerText = "Entered wrong month/day"
+  }
 
 };
 
